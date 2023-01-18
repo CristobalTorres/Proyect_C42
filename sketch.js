@@ -11,7 +11,7 @@ var obstaclesGroup, obstacle1;
 
 var score=0;
 
-var gameOver, restart,winImg,Win;
+var gameOver, restart,winImg,Win,winSound;
 
 function preload(){
   kangaroo_running =   loadAnimation("assets/kangaroo1.png","assets/kangaroo2.png","assets/kangaroo3.png");
@@ -26,6 +26,7 @@ function preload(){
   winImg= loadImage("assets/WinImage.png")
   jumpSound = loadSound("assets/jump.wav");
   collidedSound = loadSound("assets/collided.wav");
+  winSound = loadSound("assets/winSound.wav");
 
 }
 
@@ -149,8 +150,10 @@ function draw() {
   
   if(score >= 5){
     kangaroo.visible = false;
-    
+//modificacion personal
     Win.visible=true;
+    winSound.play();
+
    // textSize(30);
     //stroke("yellow");
     //fill("green");
